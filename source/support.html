@@ -1,0 +1,220 @@
+<!--
+  Tells — Support page
+
+  Exists because App Store Connect's Support URL field needs an http(s) address
+  and will not take a mailto:. It is also the page a reviewer clicks, so the
+  answers here have to match the app's actual behaviour and the two legal
+  documents — every claim below is one the app already makes somewhere else.
+
+  Goes in the same folder as the two documents, at support.html.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Tells</title>
+
+<style>
+:root{
+  --ground:#FFF6EF;
+  --raised:#FBE9E0;
+  --callout:#FFD9E6;
+  --ink:#2E0413;
+  --ink-soft:#6F5560;
+  --rule:rgba(46,4,19,.13);
+  --accent:#D6004E;
+  --marker:#B8004A;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#1A0710;
+    --raised:#26101A;
+    --callout:#2E1220;
+    --ink:#FDEFF4;
+    --ink-soft:#C4A0AE;
+    --rule:rgba(255,255,255,.14);
+    --accent:#FF6198;
+    --marker:#FF6198;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1A0710;
+  --raised:#26101A;
+  --callout:#2E1220;
+  --ink:#FDEFF4;
+  --ink-soft:#C4A0AE;
+  --rule:rgba(255,255,255,.14);
+  --accent:#FF6198;
+  --marker:#FF6198;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{max-width:44rem;margin:0 auto;padding:0 1.5rem 6rem}
+
+header{padding:4.5rem 0 2rem;border-bottom:1px solid var(--rule)}
+
+h1{
+  font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;
+  font-weight:800;letter-spacing:-.035em;line-height:1.05;
+  font-size:clamp(2.1rem,6vw,3.1rem);
+  margin:0 0 .9rem;text-wrap:balance;
+}
+
+.meta{
+  font-family:ui-monospace,"SF Mono",Menlo,monospace;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+h2{
+  font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;
+  font-weight:800;letter-spacing:-.022em;line-height:1.2;
+  font-size:1.32rem;
+  margin:3.1rem 0 .85rem;text-wrap:balance;
+}
+
+h3{
+  font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;
+  font-weight:700;font-size:1.02rem;letter-spacing:-.012em;
+  margin:1.9rem 0 .5rem;
+}
+
+p{margin:0 0 1.05rem}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+ul{margin:0 0 1.05rem;padding-left:1.15rem}
+li{margin-bottom:.5rem}
+li::marker{color:var(--marker)}
+
+strong{font-weight:650}
+
+.contact{
+  background:var(--callout);
+  border-radius:1.15rem;
+  padding:1.5rem 1.6rem;
+  margin:2.4rem 0 .6rem;
+}
+.contact h2{margin-top:0;font-size:1.1rem}
+.contact p:last-child{margin-bottom:0}
+
+.mail{
+  font-family:ui-monospace,"SF Mono",Menlo,monospace;
+  font-size:1.02rem;
+  word-break:break-all;
+}
+
+footer{
+  margin-top:4rem;padding-top:1.8rem;border-top:1px solid var(--rule);
+  color:var(--ink-soft);font-size:.9rem;
+}
+
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  .contact{border:1px solid #999;background:#fff}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <h1>Support</h1>
+  <p class="meta">Tells · Updated [DATE]</p>
+</header>
+
+<div class="contact">
+  <h2>Get in touch</h2>
+  <p>Email us and a person will read it. There is no ticket system and no bot.</p>
+  <p class="mail"><a href="mailto:[EMAIL]">[EMAIL]</a></p>
+  <p>Please say which iPhone you have and which version of iOS, if the problem is
+  something going wrong rather than a question.</p>
+</div>
+
+<h2>Common questions</h2>
+
+<h3>It says it can't read my photo</h3>
+<p>The app needs to find <strong>two people</strong> and enough of their bodies to
+compare. It will refuse rather than guess, and it tells you which part it
+couldn't read. The usual causes:</p>
+<ul>
+  <li><strong>Only faces in frame.</strong> A tight head-and-shoulders crop leaves
+  nothing to measure. Waist up works much better.</li>
+  <li><strong>Someone is turned too far away.</strong> A head in full profile hides
+  the landmarks the app measures a smile from.</li>
+  <li><strong>Too dark.</strong> Faces and hands are what it reads, and they need
+  light.</li>
+  <li><strong>More than two people.</strong> It picks the two nearest the camera.
+  A photo of just the two of you is more reliable.</li>
+</ul>
+<p>A refusal isn't a verdict on the two of you. It means the photo didn't carry
+enough information, so a different photo usually fixes it.</p>
+
+<h3>Do you have my photos?</h3>
+<p>No. Nothing leaves your phone. The whole analysis runs on your device, the app
+has no servers, and it works with the internet switched off — turn on airplane
+mode and try it. There is no account and nothing is uploaded. The
+<a href="privacy-policy.html">Privacy Policy</a> sets this out in full.</p>
+
+<h3>How do I delete everything?</h3>
+<p>In the app: <strong>Settings → Delete all my checks</strong>. That erases your
+history and the thumbnails saved with it, immediately and permanently. Deleting
+the app removes it too.</p>
+<p>If you have iPhone backups switched on, iOS may have included the app's local
+data in your own iCloud or computer backup. That backup is yours and we have no
+access to it; you can exclude it in your device settings.</p>
+
+<h3>Why is the score marked as uncertain?</h3>
+<p>When the light, the crop or the number of visible signals means the reading is
+thin, the app marks the score rather than presenting it as firm. It would rather
+tell you it isn't sure than make something up.</p>
+
+<h3>Is the app free?</h3>
+<p>Yes. No in-app purchases, no subscription, no adverts.</p>
+
+<h3>How old do I have to be?</h3>
+<p>18 or older. See the <a href="terms-of-use.html">Terms of Use</a>.</p>
+
+<h3>How accurate is it?</h3>
+<p>Treat it as entertainment. Reading romantic interest from a single photograph
+is not a validated method, and the app says so on every result screen and in a
+section called <em>What we can't tell you</em>. It describes what two bodies were
+doing in one frame. It cannot tell you what anybody thinks, wants or feels — and
+a score is never permission.</p>
+
+<h2>Reporting a problem with someone's photo</h2>
+<p>The app has no accounts, no feed and no way to share anything to us or to other
+users, so there is nothing hosted here to report. If you believe someone has
+used a photo of you inappropriately, that is a matter between you and them, and
+the <a href="terms-of-use.html">Terms of Use</a> prohibit analyzing photos of
+children, intimate images, and photos of anyone who would object.</p>
+
+<h2>Privacy requests</h2>
+<p>We hold almost nothing about anyone: no account, no photos, no results, no
+usage data. The only record we might have is an email you sent us. To ask what we
+hold or to have it deleted, write to
+<a href="mailto:[EMAIL]">[EMAIL]</a>. Details of your rights are in section 11 of
+the <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+<footer>
+  <p>[COMPANY] · [ADDRESS], Türkiye</p>
+  <p><a href="privacy-policy.html">Privacy Policy</a> ·
+     <a href="terms-of-use.html">Terms of Use</a></p>
+</footer>
+
+</div>
+</body>
+</html>

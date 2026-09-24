@@ -1,0 +1,47 @@
+WHAT THE APP DOES
+
+Tells looks at one photo of two people and measures what their bodies are doing in it — distance, torso angle, contact, posture, expression, gaze — then turns that into an entertainment score with a written explanation.
+
+WHY THIS ISN'T A SIMILAR OR REPACKAGED APP (4.3(a))
+
+Previously submitted as "VibeCheck" and rejected under 4.3(a) for resembling other apps. Renamed to Tells; name, subtitle, keywords and icon all changed to stop overlapping the "vibe check"-style apps already on the Store.
+
+This is not a wrapper that sends a photo to an AI service. VNDetectHumanBodyPoseRequest reads a 19-point skeleton per person; VNDetectFaceLandmarksRequest reads 76 points per face — both from Apple's Vision framework, entirely on-device. Seven geometric measurements are computed from those points (torso gap vs. shoulder width, shoulder-line rotation, closest joint approach, and so on), each threshold set from real photographs, not guessed. There is no language model in the app. An unreliable measurement is marked unreadable rather than guessed — see REFUSALS below.
+
+HOW TO TEST IT
+
+1. Tap through the four onboarding cards; the last is an agreement screen — tap "Agree & start".
+2. Tap "New reading" and pick a photo with TWO PEOPLE, ideally waist-up.
+3. Pick which side is "you", pick a context, wait a few seconds.
+
+Test on a physical device — Vision's body pose model isn't bundled in the Simulator, so a Simulator run reports it can't read photos. That's a platform limitation, not a bug. Two sample photos are attached in case the review device has none suitable.
+
+REFUSALS ARE INTENTIONAL
+
+A photo with one person, a tight crop or a very dark image is declined, naming the part that couldn't be read. That's designed behaviour — the app refuses rather than inventing a score.
+
+EVERYTHING RUNS ON THE DEVICE
+
+No network requests of any kind, no backend, no analytics, no ad SDK, no third-party code. URLSession doesn't appear anywhere in the source. Turn on airplane mode and every feature works, including analysis. Photos are never uploaded — there is nowhere to upload them to. Results live only in the app's local container; Settings has "Delete all my checks".
+
+THE OTHER PERSON IN THE PHOTO
+
+The photo never leaves the device, so no third-party image is ever transmitted anywhere. The app performs no facial recognition, creates no faceprint, and cannot identify anyone — no face database, no cross-photo matching. Privacy Policy section 8 covers GDPR Article 9, Illinois BIPA and Texas CUBI. It measures the arrangement of two bodies in one frame; that doesn't allow or confirm unique identification.
+
+Terms of Use prohibit analyzing intimate images, photos of children, or anyone who'd object — accepted on the final onboarding screen, version recorded. The result screen permanently reads: "One frame, one second. This is pattern-matching, not mind-reading. Use it to start a conversation, not to end one." Consent, the Terms say, comes from what a person says — never from a score.
+
+WHY 18+
+
+Romantic attraction is a frequent mature/suggestive theme on the questionnaire. No sexual content, nudity, violence, profanity, gambling or substances. Also stated in Terms section 2 and the onboarding agreement.
+
+ACCURACY
+
+Settings has a section, "What we can't tell you," stating plainly that reading romantic interest from one photo isn't validated, that body language shifts constantly, and that proxemic norms vary by culture. The description says the same.
+
+PRICE
+
+Free. No in-app purchases, no subscription, no advertising.
+
+CONTACT
+
+vibecheckappsupport@gmail.com — monitored daily during review.
